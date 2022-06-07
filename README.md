@@ -1,16 +1,19 @@
-# projeto_perguntas
+# Projeto Perguntas
 
-A new Flutter project.
+Projeto de apicativo do curso de Flutter da Cod3er na Udemy.
 
-## Getting Started
+## Sobre o projeto
 
-This project is a starting point for a Flutter application.
+O projeto consiste em um aplicativo que irá apresentar várias
+perguntas para o usuário e de acordo com suas respostas apresentar
+resultados personalizados.
 
-A few resources to get you started if this is your first Flutter project:
+## Motivação
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+A motivação do projeto é estudar o framework e aplicar os conhecimentos adquiridos.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Anotações
+
+Algumas anotações sobre o projeto podem ser encontradas no link abaixo:
+
+- [Anotações no Notion](https://smart-market-8f0.notion.site/Projeto_perguntas-7003bb61c52549038feaae8ae7b581d4)
