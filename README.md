@@ -1,6 +1,6 @@
 # Projeto Perguntas
 
-Projeto de apicativo do curso de Flutter da Cod3er na Udemy.
+Projeto de aplicativo do curso de Flutter da Cod3er na Udemy.
 
 ## Sobre o projeto
 
