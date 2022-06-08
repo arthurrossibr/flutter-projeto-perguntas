@@ -28,10 +28,8 @@ class Questionario extends StatelessWidget {
       children: <Widget>[
         Questao(perguntas[perguntaSelecionada]['texto'].toString()),
         ...respostas.map((resp) {
-          return Resposta(
-              resp['texto'].toString(),
-              () => quandoResponder(int.parse(resp['pontos'].toString()))
-          );
+          return Resposta(resp['texto'].toString(),
+              () => quandoResponder(int.parse(resp['pontos'].toString())));
         }).toList(),
         // ... é um spread operator
       ],
