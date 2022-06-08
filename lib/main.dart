@@ -15,43 +15,53 @@ class PerguntasApp extends StatefulWidget {
 
 class _PerguntasAppState extends State<PerguntasApp> {
   var _perguntaSelecionada = 0;
+  final _perguntas = const [
+    {
+      'texto': 'Qual é a sua cor favorita?',
+      'resposta': ['Preto', 'Vermelho', 'Verde', 'Branco'],
+    },
+    {
+      'texto': 'Qual é o seu animal favorito?',
+      'resposta': ['Cachorro', 'Gato', 'Furão', 'Hamster'],
+    },
+    {
+      'texto': 'Qual é o seu veículo favorito?',
+      'resposta': ['Carro', 'Moto', 'Barco', 'Bicicleta'],
+    }
+  ];
 
   void _responder() {
-    setState(() {
-      _perguntaSelecionada++;
-    });
+    if (_perguntaSelecionada < _perguntas.length) {
+      setState(() {
+        _perguntaSelecionada++;
+      });
+    }
+  }
+
+  bool get temPerguntaSelecionada {
+    return _perguntaSelecionada < _perguntas.length;
   }
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, Object>> perguntas = [
-      {
-        'texto': 'Qual é a sua cor favorita?',
-        'resposta': ['Preto', 'Vermelho', 'Verde', 'Branco'],
-      },
-      {
-        'texto': 'Qual é o seu animal favorito?',
-        'resposta': ['Cachorro', 'Gato', 'Furão', 'Hamster'],
-      },
-      {
-        'texto': 'Qual é o seu veículo favorito?',
-        'resposta': ['Carro', 'Moto', 'Barco', 'Bicicleta'],
-      }
-    ];
+    List<String> respostas = temPerguntaSelecionada
+        ? _perguntas[_perguntaSelecionada].cast()['resposta']
+        : [];
 
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(
         title: const Text('Perguntas'),
       ),
-      body: Column(
-        children: <Widget>[
-          Questao(perguntas[_perguntaSelecionada]['texto'].toString()),
-          Resposta('Resposta 1', _responder),
-          Resposta('Resposta 2', _responder),
-          Resposta('Resposta 3', _responder),
-        ],
-      ),
+      body: temPerguntaSelecionada
+          ? Column(
+              children: <Widget>[
+                Questao(_perguntas[_perguntaSelecionada]['texto'].toString()),
+                ...respostas.map((t) => Resposta(t, _responder)).toList(),
+                // ... é um spread operator
+              ],
+            )
+          : null,
     ));
   }
 }
