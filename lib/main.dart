@@ -15,25 +15,42 @@ class PerguntasApp extends StatefulWidget {
 
 class _PerguntasAppState extends State<PerguntasApp> {
   var _perguntaSelecionada = 0;
+  var _pontuacaoTotal = 0;
   final _perguntas = const [
     {
       'texto': 'Qual é a sua cor favorita?',
-      'resposta': ['Preto', 'Vermelho', 'Verde', 'Branco'],
+      'resposta': [
+        {'texto': 'Preto', 'pontos': 10},
+        {'texto': 'Vermelho', 'pontos': 5},
+        {'texto': 'Verde', 'pontos': 3},
+        {'texto': 'Branco', 'pontos': 1},
+      ],
     },
     {
       'texto': 'Qual é o seu animal favorito?',
-      'resposta': ['Cachorro', 'Gato', 'Furão', 'Hamster'],
+      'resposta': [
+        {'texto': 'Cachorro', 'pontos': 10},
+        {'texto': 'Gato', 'pontos': 5},
+        {'texto': 'Furão', 'pontos': 3},
+        {'texto': 'Hamster', 'pontos': 1},
+      ],
     },
     {
       'texto': 'Qual é o seu veículo favorito?',
-      'resposta': ['Carro', 'Moto', 'Barco', 'Bicicleta'],
+      'resposta': [
+        {'texto': 'Moto', 'pontos': 10},
+        {'texto': 'Carro', 'pontos': 5},
+        {'texto': 'Ônibus', 'pontos': 3},
+        {'texto': 'Bicicleta', 'pontos': 1},
+      ],
     }
   ];
 
-  void _responder() {
+  void _responder(int pontuacao) {
     if (_perguntaSelecionada < _perguntas.length) {
       setState(() {
         _perguntaSelecionada++;
+        _pontuacaoTotal += pontuacao;
       });
     }
   }
@@ -53,8 +70,8 @@ class _PerguntasAppState extends State<PerguntasApp> {
             ? Questionario(
                 perguntas: _perguntas,
                 perguntaSelecionada: _perguntaSelecionada,
-                responder: _responder)
-            : const Resultado(),
+                quandoResponder: _responder)
+            : Resultado(_pontuacaoTotal),
       ),
     );
   }

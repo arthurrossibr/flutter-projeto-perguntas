@@ -9,16 +9,15 @@ class Resposta extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      margin: const EdgeInsets.all(10),
-      child: ElevatedButton(
+        width: double.infinity,
+        margin: const EdgeInsets.all(10),
+        child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             primary: Colors.blue,
             onPrimary: Colors.white,
           ),
           onPressed: onPressed,
           child: Text(texto),
-      )
-    );
+        ));
   }
 }
