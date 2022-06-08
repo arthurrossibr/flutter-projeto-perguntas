@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './questao.dart';
+import './resposta.dart';
 
 main() {
   runApp(const PerguntasApp());
@@ -19,7 +20,6 @@ class _PerguntasAppState extends State<PerguntasApp> {
     setState(() {
       _perguntaSelecionada++;
     });
-    debugPrint('perguntaSelecionada');
   }
 
   @override
@@ -39,30 +39,9 @@ class _PerguntasAppState extends State<PerguntasApp> {
         body: Column(
           children: <Widget>[
             Questao(perguntas[_perguntaSelecionada]),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
-                onPrimary: Colors.white,
-              ),
-              onPressed: _responder,
-              child: const Text('Resposta 1'),
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
-                onPrimary: Colors.white,
-              ),
-              onPressed: _responder,
-              child: const Text('Resposta 2'),
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
-                onPrimary: Colors.white,
-              ),
-              onPressed: _responder,
-              child: const Text('Resposta 3'),
-            ),
+            Resposta('Resposta 1', _responder),
+            Resposta('Resposta 2', _responder),
+            Resposta('Resposta 3', _responder),
           ],
         ),
       )
