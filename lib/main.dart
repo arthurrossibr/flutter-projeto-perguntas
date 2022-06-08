@@ -49,19 +49,24 @@ class _PerguntasAppState extends State<PerguntasApp> {
         : [];
 
     return MaterialApp(
-        home: Scaffold(
-      appBar: AppBar(
-        title: const Text('Perguntas'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Perguntas'),
+        ),
+        body: temPerguntaSelecionada
+            ? Column(
+                children: <Widget>[
+                  Questao(_perguntas[_perguntaSelecionada]['texto'].toString()),
+                  ...respostas.map((t) => Resposta(t, _responder)).toList(),
+                  // ... é um spread operator
+                ],
+              )
+            : const Center(
+                child: Text('Você respondeu todas as perguntas!',
+                    style: TextStyle(fontSize: 28),
+                    textAlign: TextAlign.center),
+              ),
       ),
-      body: temPerguntaSelecionada
-          ? Column(
-              children: <Widget>[
-                Questao(_perguntas[_perguntaSelecionada]['texto'].toString()),
-                ...respostas.map((t) => Resposta(t, _responder)).toList(),
-                // ... é um spread operator
-              ],
-            )
-          : null,
-    ));
+    );
   }
 }
