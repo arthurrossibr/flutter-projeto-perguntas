@@ -11,9 +11,3 @@ resultados personalizados.
 ## Motivação
 
 A motivação do projeto é estudar o framework e aplicar os conhecimentos adquiridos.
-
-## Anotações
-
-Algumas anotações sobre o projeto podem ser encontradas no link abaixo:
-
-- [Anotações no Notion](https://smart-market-8f0.notion.site/Projeto_perguntas-7003bb61c52549038feaae8ae7b581d4)
